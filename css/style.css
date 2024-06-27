@@ -2,7 +2,9 @@
   --primary-text-color:rgb(25, 42, 86);
   --secondry-text-color:rgb(70, 187, 46);
   --primary-bg-color:rgba(84, 83, 82, 0.2);
+  --secondry-bg-color: rgba(248, 242, 242, 0.796);
   --primary-shadow-color:rgba(0, 0, 0, .175);
+  --para-color:#666;
 
   --transition-duration:0.5s;
 }
@@ -30,6 +32,35 @@ img{
   width:80%;
   margin: 0 auto;
 }
+
+
+
+@media (min-width: 576px){
+  .container{
+    width: 400px;
+  }
+}
+
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+
 
 /* start nav bar */
 
@@ -68,6 +99,7 @@ img{
   nav .links ul li{
     color: var(--primary-text-color);
     padding: 8px;
+    margin: 8px 4px;
   }
   nav .links ul li a{
     font-size: 1.1rem;
@@ -135,7 +167,7 @@ img{
     display: flex;
   }
   header .text{
-    width: 45%;
+    width: 50%;
   }
 
   header .img{
@@ -150,21 +182,279 @@ img{
   }
   header .text h2{
     color: var(--primary-text-color);
-    font-size: 4rem;
+    font-size: 72px;
     margin-bottom: 8px;
   }
 
   header .text .par-photo{
     color: #666;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
+    margin: 10px;
   }
 
   header .text button{
     font-size: 1.5rem;
     padding: 10px 20px;
+    margin-top: 10px;
     background: var(--primary-text-color);
     color: white;
-    border-radius: 10%;
-
+    border-radius: 5%;
+    cursor: pointer;
     pointer-events: all;
+    width: 40%;
+    transition-duration: var(--transition-duration);
   }
+
+  header .text button:hover{
+    background: var(--secondry-text-color);
+    width: 50%;
+  } 
+
+
+  /* end header */
+  .dishes-page{
+    overflow: auto;
+    background: var(--secondry-bg-color);
+  }
+  .container>h2{
+    margin: 20px;
+    text-align: center;
+    font-size: 2rem;
+    /* font-weight: 200; */
+    color: var(--primary-text-color);
+    position: relative;
+    margin-bottom: 25px;
+  }
+
+  .container>h2::before{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 200px;
+    background: var(--secondry-text-color);
+    top: calc(100% + 6px + 5px);
+    left: calc(50% - 100px); 
+  }
+
+  .container>h2::after{
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 140px;
+    /* background: var(--secondry-text-color); */
+    top: calc(100%  + 5px);
+
+    left: calc(50% - 70px); 
+
+    border: var(--secondry-text-color) 2px solid;
+
+    border-left: transparent;
+    border-right: transparent;
+  }
+/* start dishes page */
+.dishes-page
+,.menu-page{
+  overflow: auto;
+  padding: 20px 0px;
+}
+
+.container > h3{
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 50px;
+  font-weight: 300;
+}
+
+.dishes-page .dishes{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+} 
+
+.dish{
+  /* width: clamp(200px , 40%); */
+  width: 300px;
+  background-color: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.dish .image{
+  height:  60%;
+}
+
+.dish .text h4{
+  color: var(--primary-text-color);
+  margin: 8px;
+  font-size: 1.5rem;
+}
+
+.dish .text .star{
+  color: var(--secondry-text-color);
+}
+
+.dish .text .price{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 8px;
+}
+.dish .text .price p {
+color: var(--secondry-text-color);
+font-weight: 600;
+}
+
+.dish .text .price button
+, .about .figure .text button{
+  
+  font-size: 1rem;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: var(--primary-text-color);
+    color: white;
+    border-radius: 5%;
+    cursor: pointer;
+    pointer-events: all;
+    /* width: 40%; */
+    transition-duration: var(--transition-duration);
+    /* transition-delay: 0.5s; */
+}
+
+
+.dish .text .price button:hover{
+  background: var(--secondry-text-color);
+}
+
+.left-circle
+,.right-circle{
+  width: 40px;
+    height: 40px;
+    background: var(--primary-bg-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: var(--transition-duration);
+    cursor: pointer;
+}
+
+.dishes-page .left-circle{
+  position: absolute;
+  left:-50%;
+  top: 20px;
+}
+
+.dishes-page .right-circle{
+  position: absolute;
+  right:-50%;
+  top: 20px;
+}
+
+.dishes-page .dish:hover .left-circle{
+  left: 5%;
+}
+
+.dishes-page .dish:hover .right-circle{
+  right: 5%;
+}
+
+
+.dish .left-circle:hover
+, .dish .right-circle:hover{
+background: var(--secondry-text-color);
+color: white;
+transform: rotate(360deg);
+}
+/* end dishes page */
+
+/* start about page */
+
+.about .figure {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.about .figure .image{
+  width: 50%;
+}
+
+.about .figure .text{
+  width: 50%;
+}
+
+.about .figure .text h3{
+  font-size: 2rem;
+  color: var(--primary-text-color);
+  margin: 10px 0px;
+}
+
+.about .figure .text > p{
+  color: var(--para-color);
+  line-height: 1.3rem;
+  padding-bottom: 20px;
+}
+
+.about .figure .text .labels{
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom:20px ;
+}
+
+.about .figure .text .labels .label{
+  width: 30%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--secondry-bg-color);
+  border: 1px solid #000000;
+  padding: 10px 5px;
+  border-radius: 5%;
+}
+
+.about .figure .text .labels .label p {
+  padding-left: 5px;
+}
+
+
+.about .figure .text .labels .label i{
+  color: var(--secondry-text-color);
+}
+
+.about .figure .text button:hover{
+  width: 30%;
+  background-color: var(--secondry-text-color);
+}
+/* end about page */
+
+
+/* start menu page */
+
+.menu-page{
+  background: var(--secondry-bg-color);
+}
+.menu-page .dishes{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+.menu-page .dish{
+  padding: 15px;
+}
+
+.menu-page .right-circle{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: white;
+}
+
+/* end menu page */
